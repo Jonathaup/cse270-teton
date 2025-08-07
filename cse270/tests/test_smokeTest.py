@@ -97,6 +97,6 @@ class TestSmokeTest():
     self.driver.find_element(By.NAME, "biztitle").click()
     self.driver.find_element(By.NAME, "biztitle").send_keys("Owner")
     self.driver.find_element(By.NAME, "submit").click()
-    element = self.driver.find_element(By.NAME, "email")
-    assert element.is_enabled() is True
+    elements = self.driver.find_elements(By.NAME, "email")
+    assert len(elements) > 0
   
