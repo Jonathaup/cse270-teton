@@ -33,10 +33,11 @@ class TestSmokeTest():
     self.driver.find_element(By.ID, "password").send_keys("pepe1234")
     self.driver.find_element(By.CSS_SELECTOR, ".mysubmit:nth-child(4)").click()
     WebDriverWait(self.driver, 30000).until(expected_conditions.text_to_be_present_in_element((By.CSS_SELECTOR, ".errorMessage"), "Invalid username and password."))
+    self.driver.find_element(By.CSS_SELECTOR, "body").click()
   
   def test_firstCase(self):
     self.driver.get("http://127.0.0.1:5500/cse270/teton/1.6/index.html")
-    self.driver.set_window_size(974, 1032)
+    self.driver.set_window_size(1936, 1048)
     elements = self.driver.find_elements(By.CSS_SELECTOR, ".header-logo img")
     assert len(elements) > 0
     assert self.driver.find_element(By.CSS_SELECTOR, ".header-title > h1").text == "Teton Idaho"
@@ -45,7 +46,7 @@ class TestSmokeTest():
   
   def test_secondCase(self):
     self.driver.get("http://127.0.0.1:5500/cse270/teton/1.6/index.html")
-    self.driver.set_window_size(974, 1032)
+    self.driver.set_window_size(1936, 1048)
     assert self.driver.find_element(By.LINK_TEXT, "Home").text == "Home"
     assert self.driver.find_element(By.LINK_TEXT, "Join").text == "Join"
     assert self.driver.find_element(By.LINK_TEXT, "Directory").text == "Directory"
